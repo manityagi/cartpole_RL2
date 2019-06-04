@@ -73,7 +73,7 @@ for e in range(NUM_EPISODES):
 	for i in range(len(grads)):
 
 		# Loop through everything that happend in the episode and update towards the log policy gradient times **FUTURE** reward
-		w += LEARNING_RATE * grads[i] * sum([ r * (GAMMA ** r) for t,r in enumerate(rewards[i:])])
+		w += LEARNING_RATE * grads[i] * sum([ r * (GAMMA ** t) for t,r in enumerate(rewards[i:])])
 	
 	# Append for logging and print
 	episode_rewards.append(score) 
